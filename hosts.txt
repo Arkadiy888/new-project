@@ -1,0 +1,13 @@
+[staging_servers]
+linux1   ansible_host=172.31.0.124
+
+[staging_servers:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=/home/ubuntu/hooligan888-key-Tokyo.pem
+
+#[prod_servers]
+#linux2   ansible_host=172.31.15.30
+
+#[prod_servers:vars]
+#ansible_user=ec2-user
+#ansible_ssh_private_key_file=/home/ubuntu/hooligan888-key-Tokyo.pem
