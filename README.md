@@ -1,8 +1,19 @@
-# Тестирование docker-контейнера
+# Инфраструктура для тестирования docker-контейнера
 
-Чтобы развернуть тестовое окружение необходимо:
+## Описание:
 
-Установить [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+Данный модуль состоит из скрипта-terraform и ролей ansible и предназначен для создания ифраструктуры для тестирования docker-контейнеров.
 
-Установить [ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+## Чтобы развернуть тестовое окружение необходимо:
+
+1. Установить [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+
+2. Установить [ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+3. 
+
+4. 
+
+5.
+
 
