@@ -16,17 +16,14 @@
 - ansible_playbook/roles/deploy_app/vars/main.yml
 
 4. Запустить terraform-скрипт командой:
-
-- terraform apply
-
+```
+$ terraform apply
+```
 5. Отредактировать ip-адреса тестовых серверов в файле:
 
 - ansible_playbook/hosts.txt
 
 6. Запустить playbook.yaml командой:
-
-- ansible-playbook playbook.yaml
-
-
-
-
+```
+$ ansible-playbook playbook.yaml
+```
