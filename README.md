@@ -12,6 +12,7 @@
 
 3. Задать параметры в файлах:
 - terraform_server/variables.tf
+- ansible_playbook/group_vars/app_servers.yaml
 - ansible_playbook/roles/deploy_env/vars/main.yml
 - ansible_playbook/roles/deploy_app/vars/main.yml
 
