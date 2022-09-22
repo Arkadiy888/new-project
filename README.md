@@ -18,7 +18,10 @@
 
 4. Создать файлы:
 
+* Status
+  * Up/Down graph per instance. It shows the `nginx_up` metric.
 - terraform_runner/token.tf (переменные для инициализации провайдера "Yandex Cloud")
+  - переменные для инициализации провайдера "Yandex Cloud"
 - ansible_runner/roles/deploy_runner/defaults/main.yml (переменная "registration_token" для регистрации "gitlab-runner")
 - ansible_runner/roles/deploy_runner/files/id_rsa (приватный ключ для подключения "gitlab-runner" к тестовому серверу)
 
@@ -30,27 +33,6 @@ terraform apply
 ## Чтобы сделать деплой шаблонного приложения необходимо:
 
 6. Сделать "commit" в репозиторий из ветки "uat"
-
-
-
-
-## Prerequisites
-
-The dashboard has been tested with the following software versions:
-
-* NGINX Prometheus Exporter >= 0.4.1
-* Grafana >= v5.0.0
-* Prometheus >= v2.0.0
-
-A Prometheus data source needs to be [added](https://prometheus.io/docs/visualization/grafana/#using) before installing the dashboard.
-
-
-
-
-
-
-
-
 
 ## Graphs
 
