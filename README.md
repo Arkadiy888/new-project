@@ -18,12 +18,12 @@
 
 4. Создать файлы:
 
-* Status
-  * Up/Down graph per instance. It shows the `nginx_up` metric.
-- terraform_runner/token.tf (переменные для инициализации провайдера "Yandex Cloud")
-  - переменные для инициализации провайдера "Yandex Cloud"
-- ansible_runner/roles/deploy_runner/defaults/main.yml (переменная "registration_token" для регистрации "gitlab-runner")
-- ansible_runner/roles/deploy_runner/files/id_rsa (приватный ключ для подключения "gitlab-runner" к тестовому серверу)
+- terraform_runner/token.tf
+  - Переменные для инициализации провайдера "Yandex Cloud"
+- ansible_runner/roles/deploy_runner/defaults/main.yml
+  - Переменная "registration_token" для регистрации "gitlab-runner")
+- ansible_runner/roles/deploy_runner/files/id_rsa
+  - Приватный ключ для подключения "gitlab-runner" к тестовому серверу)
 
 5. Запустить terraform-скрипт командой:
 ```
@@ -33,15 +33,3 @@ terraform apply
 ## Чтобы сделать деплой шаблонного приложения необходимо:
 
 6. Сделать "commit" в репозиторий из ветки "uat"
-
-## Graphs
-
-The dashboard comes with 2 rows with the following graphs for NGINX metrics:
-
-* Status
-  * Up/Down graph per instance. It shows the `nginx_up` metric.
-* Metrics
-  * Processed connections (`nginx_connections_accepted` and `nginx_connections_handled` metrics). This graph shows an [irate](https://prometheus.io/docs/prometheus/latest/querying/functions/#irate) in a range of 5 minutes. Useful for seeing the variation of the processed connections in time. 
-  * Active connections (`nginx_connections_active`, `nginx_connections_reading`, `nginx_connections_waiting` and `nginx_connections_writing`). Useful for checking what is happening right now.
-  * Total Requests with an irate (5 minutes range too) of the total number of client requests (`nginx_http_requests_total`) over time.
-
