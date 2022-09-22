@@ -30,3 +30,17 @@ terraform apply
 ## Чтобы сделать деплой шаблонного приложения необходимо:
 
 6. Сделать "commit" в репозиторий из ветки "uat"
+
+
+
+
+## Prerequisites
+
+The dashboard has been tested with the following software versions:
+
+* NGINX Prometheus Exporter >= 0.4.1
+* Grafana >= v5.0.0
+* Prometheus >= v2.0.0
+
+A Prometheus data source needs to be [added](https://prometheus.io/docs/visualization/grafana/#using) before installing the dashboard.
+
