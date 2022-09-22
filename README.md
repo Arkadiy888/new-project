@@ -18,7 +18,7 @@
 
 4. Создать файлы:
 
-- terraform_runner/token.tf ()
+- terraform_runner/token.tf (переменные для инициализации провайдера "Yandex Cloud")
 - ansible_runner/roles/deploy_runner/defaults/main.yml (переменная registration_token для регистрации gitlab-runner)
 - ansible_runner/roles/deploy_runner/files/id_rsa (приватный ключ для подключения gitlab-runner к тестовому серверу)
 
