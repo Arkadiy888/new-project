@@ -44,3 +44,22 @@ The dashboard has been tested with the following software versions:
 
 A Prometheus data source needs to be [added](https://prometheus.io/docs/visualization/grafana/#using) before installing the dashboard.
 
+
+
+
+
+
+
+
+
+## Graphs
+
+The dashboard comes with 2 rows with the following graphs for NGINX metrics:
+
+* Status
+  * Up/Down graph per instance. It shows the `nginx_up` metric.
+* Metrics
+  * Processed connections (`nginx_connections_accepted` and `nginx_connections_handled` metrics). This graph shows an [irate](https://prometheus.io/docs/prometheus/latest/querying/functions/#irate) in a range of 5 minutes. Useful for seeing the variation of the processed connections in time. 
+  * Active connections (`nginx_connections_active`, `nginx_connections_reading`, `nginx_connections_waiting` and `nginx_connections_writing`). Useful for checking what is happening right now.
+  * Total Requests with an irate (5 minutes range too) of the total number of client requests (`nginx_http_requests_total`) over time.
+
