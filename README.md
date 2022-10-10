@@ -18,8 +18,8 @@
   - hpa-max-2.yaml применяем вечером (на ночь оставляем максимум 2 пода)
   - hpa-max-4.yaml применяем днем (возвращаем 4 пода для пиковой нагрузки днем)
 ```
-0 8 * * * echo $(date)  >> /home/arkadiy/test_task/hpa.log && /usr/local/bin/kubectl apply -f /home/arkadiy/test_task/hpa-max-4.yaml >> /home/arkadiy/test_task/hpa.log
-0 20 * * * echo $(date)  >> /home/arkadiy/test_task/hpa.log && /usr/local/bin/kubectl apply -f /home/arkadiy/test_task/hpa-max-2.yaml >> /home/arkadiy/test_task/hpa.log
+0 8 * * * echo $(date) >> /home/arkadiy/test_task/hpa.log && /usr/local/bin/kubectl apply -f /home/arkadiy/test_task/hpa-max-4.yaml >> /home/arkadiy/test_task/hpa.log
+0 20 * * * echo $(date) >> /home/arkadiy/test_task/hpa.log && /usr/local/bin/kubectl apply -f /home/arkadiy/test_task/hpa-max-2.yaml >> /home/arkadiy/test_task/hpa.log
 ```
 - хотим максимально отказоустойчивый deployment
   - PriorityClass обеспечивает инициализацию пода на ноде, у которой не хватает ресурсов, за счет "вытеснения" менее приоритетных подов
