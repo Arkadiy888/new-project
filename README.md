@@ -1,36 +1,54 @@
-# Инфраструктура для тестирования docker-контейнера
+# Инфраструктура для шаблонного приложения
 
 ## Описание:
 
-Данный модуль состоит из terraform-скрипта и ansible-ролей и предназначен для создания ифраструктуры для тестирования docker-контейнеров и мониторинга тестовых серверов. В качестве облачного провайдера используется Yandex Cloud, в качестве источника docker-образов - dockerhub.
+Данный модуль состоит из terraform-скрипта и ansible-ролей и предназначен для создания ифраструктуры, билда и деплоя шаблонного приложения, мониторинга серверов и анализа логов приложения.
+В качестве облачного провайдера используется Yandex Cloud, в качестве источника docker-образов - Container Registry Gitlab-CI.
 
-## Чтобы развернуть тестовое окружение необходимо:
+## Чтобы развернуть окружение необходимо:
 
 1. Установить [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
 2. Установить [ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 3. Задать параметры в файлах:
+
 - terraform_server/variables.tf
-- ansible_app/group_vars/app_servers.yaml
-- ansible_app/roles/deploy_app/vars/main.yml
-- ansible_monitoring/group_vars/app_servers.yaml
-- ansible_monitoring/roles/install_grafana/vars/main.yml
+
+- ansible_playbook/group_vars/elasticsearch_servers.yaml
+- ansible_playbook/group_vars/monitoring_servers.yaml
+- ansible_playbook/group_vars/prod_servers.yaml
+- ansible_playbook/group_vars/runner_servers.yaml
+- ansible_playbook/group_vars/test_servers.yaml
+
+- ansible_playbook/roles/install_elasticsearch/vars/main.yml
+- ansible_playbook/roles/install_fluentd/vars/main.yml
+- ansible_playbook/roles/install_grafana/vars/main.yml
+- ansible_playbook/roles/install_node_exporter/vars/main.yml
+- ansible_playbook/roles/install_prometheus/vars/main.yml
+- ansible_playbook/roles/install_runner/vars/main.yml
 
 4. Создать файлы:
 
 - terraform_server/token.tf
   - Переменные для инициализации провайдера "Yandex Cloud"
-- ansible_monitoring/roles/install_prometheus/files/prometheus
-- ansible_monitoring/roles/install_prometheus/files/promtool
-  - Исполняемые файлы для prometheus
+- ansible_playbook/roles/install_runner/defaults/main.yml
+  - Переменная "registration_token" для регистрации "gitlab-runner"
+- ansible_playbook/roles/install_runner/files/id_rsa
+  - Приватный ключ для подключения "gitlab-runner" к серверам
 
 5. Запустить terraform-скрипт командой:
 ```
 terraform apply
 ```
+6. Зайти в web-интерфейс grafana, выбрать в качестве источника данных prometheus (http://localhost:9090) и импортировать prod_environment_dashboard.json и test_environment_dashboard.json
 
+7. Зайти в web-интерфейс kibana и создать индекс "fluentd-*"
 
+## Чтобы сделать деплой шаблонного приложения необходимо:
+
+8. Сделать "commit" в репозиторий
+  - Из ветки "main" деплой необходимо сделать в ручном режиме
 
 
 
