@@ -102,7 +102,7 @@ Prometheus и Grafana быстро и легко устанавливаются 
 - elasticsearch-1
   - Система управления логами
 
-![dashboard](./dashboard.png)
+![dashboard](./image.jpg)
 
 
 
